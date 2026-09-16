@@ -1,0 +1,13 @@
+# Read the hand's current control-axis positions (normalized [0,1], 1=closed),
+# one value per axis in info's order. On-demand rpc — the D1 deploy has no ROS
+# backend, so this replaces the state_joint topic_out stream (the axis-level
+# counterpart the D1 can actually serve). ok=false with a reason in message when
+# the driver is not ready.
+[contract]
+id      = "robonix/primitive/hand/get_state"
+version = "1"
+kind    = "primitive"
+idl     = "hand/srv/GetJointState.srv"
+
+[mode]
+type = "rpc"

@@ -1,0 +1,8 @@
+# Read the hand's current control-axis positions (on-demand rpc). Normalized
+# [0,1], 1=closed, one value per axis in info's axis order. The D1 deploy has no
+# ROS backend, so this replaces the state_joint topic_out stream. ok=false with a
+# reason in message when the driver is not ready.
+---
+bool ok                 # false = state unavailable (driver/hardware not ready)
+string message          # non-empty on failure: human-readable reason
+float64[] positions     # current normalized axis positions [0,1]; empty when ok=false
